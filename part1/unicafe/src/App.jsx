@@ -6,19 +6,22 @@ const Button = ({ text, handleClick }) => {
 
 const Stat = ({ text, number }) => {
   return (
-    <h3>
-      {text} {number}
-    </h3>
+    <table style={{ borderCollapse: "collapse", width: "200px" }}>
+      <tbody>
+        <tr>
+          <td style={{ width: "120px", paddingRight: "10px" }}>{text}</td>
+          <td>{number}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 const Statistics = ({ good, neutral, bad, all, average, positive }) => {
-
   if (all == 0) {
-    return <h3>No feedback given</h3>
+    return <h3>No feedback given</h3>;
   }
 
- 
   return (
     <div>
       <h2>statistics</h2>
@@ -64,7 +67,6 @@ const App = () => {
       setAverage(avg.toFixed(2));
     }
   }, [good, bad, all]);
-
 
   useEffect(() => {
     if (all === 0) {
